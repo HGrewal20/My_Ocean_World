@@ -27,7 +27,7 @@ document.getElementById('pause-timer').addEventListener('click', pauseTimer);
 document.getElementById('reset-timer').addEventListener('click', resetTimer);
 
 // "The Sea" button functionality using a persistent audio instance
-var seaAudio = new Audio('sfx/bg.mp3');
+var seaAudio = new Audio('sfx/(insert_file_here).mp3');
 document.getElementById('sea-button').addEventListener('click', function () {
   if (seaAudio.paused) {
     seaAudio.play();

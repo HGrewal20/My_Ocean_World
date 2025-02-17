@@ -1,0 +1,221 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Our main container: covers at least full viewport height */
+.gradient-container {
+  /* Fill the whole screen. Could also use height: 100vh. */
+  min-height: 100vh;
+  width: 100%;
+  /* Center everything using Flexbox */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* The GIF itself */
+.gradient-container img {
+  border-radius: 5px;
+
+  /* Don’t exceed its natural size of 1360×752 */
+  max-width: 1360px;
+  max-height: 752px;
+
+  /* Allow shrinking if viewport is smaller (typical “responsive image” rule) */
+  width: 100%;
+  height: auto;
+}
+
+/* 2) Positioning the "Search Section" */
+.search-section {
+  /* Position it above or near the image in the center for demonstration */
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  /* Or, if you want it near the bottom, adjust accordingly:
+       bottom: 20px; top: auto; */
+}
+
+/* 3) Styling the Search Window to mimic the Win9x feel */
+.search-window {
+  background-color: #c0c0c0; /* Classic Windows grey */
+  border: 2px solid #808080;
+  padding: 1rem;
+  width: 250px;
+  box-shadow: 2px 2px 0 #808080, /* “3D” effect shadows */ -2px -2px 0 #fff;
+}
+
+/* 4c) The “Find Now” Button */
+.button {
+  align-self: flex-end;
+  padding: 6px 12px;
+  background-color: #e0e0e0;
+  border: 1px solid #666;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+  box-shadow: 1px 1px 0 #808080, -1px -1px 0 #fff;
+}
+
+/* Hover state (optional, already defined) */
+.button:hover {
+  background-color: #d0d0d0;
+}
+
+/* Active (pressed) state for the sunken look */
+.button:active {
+  background-color: #cfcfcf; /* A slightly darker background */
+  box-shadow: inset 1px 1px 0 #808080,
+    /* Inset shadows for a “pushed in” look */ inset -1px -1px 0 #fff;
+  transform: translateY(1px); /* Tiny shift down to enhance the illusion */
+}
+
+.taskbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: linear-gradient(
+    to bottom,
+    #2584ce 0%,
+    #2584ce 3%,
+    #1b66c6 5%,
+    #1b66c6 97%,
+    #125ebe 100%
+  );
+  display: flex;
+  align-items: center;
+  padding: 2px 5px;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+.start-button {
+  background: linear-gradient(to bottom, #68cd2f 0%, #57a727 100%);
+  color: white;
+  font-weight: bold;
+  padding: 2px 10px;
+  border-radius: 3px;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  z-index: 10;
+}
+.widget-container {
+  display: flex;
+  align-items: center;
+  transform: translateX(-100%);
+  transition: transform 0.5s ease-in-out;
+}
+.widget-container.open {
+  transform: translateX(0);
+}
+.widget {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+  padding: 2px 8px;
+  margin-right: 5px;
+  color: white;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  height: 30px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.taskbar-center {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 12px;
+}
+.taskbar-right {
+  display: flex;
+  align-items: center;
+}
+.clock {
+  color: white;
+  font-size: 12px;
+  margin-left: 10px;
+}
+.popup {
+  position: fixed;
+  bottom: 50px;
+  right: 20px;
+  width: 300px;
+  background: linear-gradient(to bottom, #eff3fb 0%, #dce5f9 100%);
+  border: 1px solid #7ba5e4;
+  border-radius: 7px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  display: none;
+}
+.popup-header {
+  background: linear-gradient(to bottom, #0051ca 0%, #0063e3 100%);
+  color: white;
+  padding: 5px 10px;
+  font-weight: bold;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+}
+.popup-content {
+  padding: 10px;
+  font-size: 14px;
+}
+.timer-input {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.timer-input input {
+  width: 50px;
+  text-align: center;
+}
+.timer-controls {
+  display: flex;
+  justify-content: space-around;
+}
+.timer-controls button {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.timer-display {
+  font-size: 24px;
+  text-align: center;
+  margin: 10px 0;
+}
+.qotd-quote {
+  font-style: italic;
+  margin-bottom: 10px;
+}
+.qotd-author {
+  text-align: right;
+  font-weight: bold;
+}
+
+#threejs-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  /* Send behind the rest of the content */
+  width: 100%;
+  height: 100%;
+  display: block;
+}

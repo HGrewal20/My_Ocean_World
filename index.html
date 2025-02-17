@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Ocean World</title>
+
+  <link rel="stylesheet" href="css/site.css">
+</head>
+
+<body>
+
+  <!-- Main foreground content -->
+  <main class="gradient-container">
+    <!-- Simple search section -->
+    <section class="search-section">
+      <div class="search-window">
+        <button type="submit" class="button">Find</button>
+        <!-- "The Sea" BUTTON (toggles bg.mp3) -->
+        <button type="button" id="sea-button" class="button">The Sea</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer with taskbar, QOTD, Timer. -->
+  <footer>
+    <div class="taskbar">
+      <div id="start-button" class="start-button">start</div>
+      <div id="widget-container" class="widget-container">
+        <div id="qotd-widget" class="widget" title="Quote Of The Day">QOTD</div>
+        <div id="timer-widget" class="widget">Timer</div>
+      </div>
+      <div class="taskbar-center">
+        <p>&copy; 2025. All rights reserved.</p>
+      </div>
+      <div class="taskbar-right">
+        <div id="clock" class="clock"></div>
+      </div>
+    </div>
+    <!-- Quote of the Day Popup -->
+    <div id="qotd-popup" class="popup">
+      <div class="popup-header">
+        <span>Quote of the Day</span>
+      </div>
+      <div class="popup-content">
+        <div id="qotd-quote" class="qotd-quote"></div>
+        <div id="qotd-author" class="qotd-author"></div>
+      </div>
+    </div>
+
+    <!-- Timer Popup -->
+    <div id="timer-popup" class="popup">
+      <div class="popup-header">
+        <span>Timer</span>
+      </div>
+      <div class="popup-content">
+        <div class="timer-input">
+          <input type="number" id="days" min="0" max="365" placeholder="Days">
+          <input type="number" id="hours" min="0" max="23" placeholder="Hours">
+          <input type="number" id="minutes" min="0" max="59" placeholder="Minutes">
+          <input type="number" id="seconds" min="0" max="59" placeholder="Seconds">
+        </div>
+        <div class="timer-controls">
+          <button id="start-timer">Start</button>
+          <button id="pause-timer">Pause</button>
+          <button id="reset-timer">Reset</button>
+        </div>
+        <div id="timer-display" class="timer-display">00:00:00:00</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Three.js (older version, no modules) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r79/three.min.js"></script>
+
+  <script src="js/bg-simulation.js"></script>
+
+  <script src="js/site-logic.js"></script>
+</body>
+
+</html>
